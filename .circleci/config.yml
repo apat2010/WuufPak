@@ -1,0 +1,29 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.1
+
+jobs:
+  lint:
+    docker:
+      - image: cimg/node:14.15.4
+    steps:
+      - checkout
+      - node/install-packages
+      - run: npm run lint
+
+  # test:
+  #   docker:
+  #     - image: cimg/node:14.15.4
+  #   steps:
+  #     - checkout
+  #     - node/install-packages
+  #     - run: npm test
+
+workflows:
+  lint:
+    jobs:
+      - lint
+  # test:
+  #   jobs:
+  #     - test

@@ -1,0 +1,99 @@
+{
+  "name": "WuufPak",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test-coverage": "jest  --collect-coverage",
+    "start": "node server/index.js",
+    "start-dev": "nodemon server/index.js",
+    "build": "webpack --watch",
+    "seed": "node database/seed.js",
+    "lint": "eslint . --ext .js,.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apat2010/WuufPak.git"
+  },
+  "keywords": [],
+  "author": "Anthony Patterson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apat2010/WuufPak/issues"
+  },
+  "homepage": "https://github.com/apat2010/WuufPak#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@testing-library/user-event": "^12.6.2",
+    "babel-jest": "^26.6.3",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "react-test-renderer": "^17.0.1",
+    "style-loader": "^2.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bootstrap": "^4.5.3",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.11.11",
+    "nodemon": "^2.0.7",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.3",
+    "react-dom": "^17.0.1",
+    "react-highlight-words": "^0.17.0",
+    "react-icons": "^4.1.0",
+    "webpack": "^5.14.0",
+    "webpack-cli": "^4.3.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react"
+    ],
+    "extends": [
+      "plugin:react/recommended",
+      "airbnb"
+    ],
+    "rules": {},
+    "ignorePatterns": [
+      "__tests__",
+      "__testData__",
+      "/client/dist"
+    ]
+  }
+}

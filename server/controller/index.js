@@ -1,8 +1,8 @@
-const feed = require('./feed.js');
+const homePage = require('./homepage.js');
 // chat
 // profile
 
 module.exports = {
   // getReviews: (req, res) => reviews(req, res),
-  getFeed: (req, res) => feed(req, res),
+  getHomePage: (req, res) => homePage(req, res),
 };

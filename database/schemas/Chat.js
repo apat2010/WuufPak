@@ -3,22 +3,18 @@ const mongoose = require('mongoose');
 const db = require('../index.js');
 
 const chatSchema = new mongoose.Schema({
+  wuufPakId: {
+    type: Number,
+  },
   conversation: [{
     profileId: {
       type: Number,
-      required: true,
     },
     comment: {
       type: String,
     },
     date: {
       type: String,
-    },
-  }],
-  associatedUsers: [{
-    profileId: {
-      type: Number,
-      required: true,
     },
   }],
 });

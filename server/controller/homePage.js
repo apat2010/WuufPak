@@ -1,6 +1,7 @@
 const Feed = require('../../database/schemas/Feed.js');
+const User = require('../../database/schemas/User.js');
 
-const feed = (req, res) => {
+const homePage = (req, res) => {
   // const { propertyId } = req.params;
   // const query = Reviews.where({ listing_id: propertyId });
   // query.findOne((err, userReviews) => {
@@ -14,4 +15,4 @@ const feed = (req, res) => {
   res.send([]);
 };
 
-module.exports = feed;
+module.exports = homePage;

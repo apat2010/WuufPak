@@ -13,32 +13,9 @@ const userSchema = new mongoose.Schema({
     maxLength: 30,
     required: [true, 'Insert your username!'],
   },
-  petsInfo: {
-    name: {
-      type: String,
-      minLength: 1,
-      maxLength: 30,
-      required: [true, 'Insert your petsname!'],
-
-    },
-    breed: {
-      type: String,
-      minLength: 1,
-      maxLength: 30,
-      required: [true, 'Insert breed!'],
-
-    },
-    age: {
-      type: Number,
-      required: [true, 'Insert age!'],
-    },
-    energyLvl: {
-      type: String,
-      enum: ['Cool Cucumber', 'Average Joe', 'Energizer Bunny'],
-      required: [true, 'Pick a energy level!'],
-    },
+  profilePic: {
+    type: String,
   },
-
   firstName: {
     type: String,
     minLength: 1,
@@ -72,7 +49,34 @@ const userSchema = new mongoose.Schema({
     maxLength: 30,
     required: [true, 'Insert your city!'],
   },
+  petsInfo: {
+    name: {
+      type: String,
+      minLength: 1,
+      maxLength: 30,
+      required: [true, 'Insert your petsname!'],
 
+    },
+    breed: {
+      type: String,
+      minLength: 1,
+      maxLength: 30,
+      required: [true, 'Insert breed!'],
+
+    },
+    age: {
+      type: Number,
+      required: [true, 'Insert age!'],
+    },
+    energyLvl: {
+      type: String,
+      enum: ['Cool Cucumber', 'Average Joe', 'Energizer Bunny'],
+      required: [true, 'Pick a energy level!'],
+    },
+  },
+  wuufPakIds: [{
+    type: Number,
+  }],
   currentLoc: {
     latitude: {
       type: String,
@@ -88,6 +92,6 @@ const userSchema = new mongoose.Schema({
 
 });
 
-const User = mongoose.model('Profile', userSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User;

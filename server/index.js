@@ -12,7 +12,10 @@ app.use(compression());
 app.use(express.json());
 
 app.use(express.static(PUBLIC_DIR));
-app.use('/api/dogs/', router);
+// app.use('/', router);
+// // app.use('/chat', router);
+// // app.use('/maps', router);
+// // app.use('/profile', router);
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);

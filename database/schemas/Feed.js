@@ -5,23 +5,12 @@ const db = require('../index.js');
 const feedSchema = new mongoose.Schema({
   profileId: {
     type: Number,
-    required: true,
   },
-  post: {
-    type: String,
-  },
-  date: {
-    type: String,
-  },
-  likes: {
-    type: Number,
-  },
-  comments: [{
+  posts: [{
     profileId: {
       type: Number,
-      required: true,
     },
-    comment: {
+    body: {
       type: String,
     },
     date: {
@@ -30,7 +19,21 @@ const feedSchema = new mongoose.Schema({
     likes: {
       type: Number,
     },
-  }],
+    comments: [{
+      profileId: {
+        type: Number,
+      },
+      comment: {
+        type: String,
+      },
+      date: {
+        type: String,
+      },
+      likes: {
+        type: Number,
+      },
+    }],
+  }]
 
 });
 

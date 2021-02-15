@@ -1,0 +1,20 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+}
+
+body {
+  /* font-size: 1.4rem;
+  color: var(--black);
+  font-family: 'Airbnb Cereal App', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Ubuntu, sans-serif; */
+  background-color: #fff;
+  /* -webkit-font-smoothing: antialiased; */
+}
+
+
+

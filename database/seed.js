@@ -1,11 +1,12 @@
-// const faker = require('faker');
-// const db = require('./index.js');
-// const Pak = require('./Pak.js');
+const faker = require('faker');
+const db = require('./index.js');
+const Chat = require('./schemas/Chat.js');
+const Feed = require('./schemas/Feed.js');
+const User = require('./schemas/User.js');
 
-// // const sampleUsers = [];
-// const sampleReviews = [];
-
-// const categories = ['Responsive host', 'Great location', 'Helpful host', 'Comfortable beds', 'Easy check-in', 'Great views', 'A quiet neighborhood', 'Central location', 'Thoughtful touches', 'Friendly host', 'Great restaurants'];
+const sampleProfiles = [];
+const samplePosts = [];
+const sampleChats= [];
 
 // for (let i = 0; i < 100; i += 1) {
 //   const listingId = 30506100 + i;

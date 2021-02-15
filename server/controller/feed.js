@@ -1,4 +1,4 @@
-const Feed = require('../../database/Feed.js');
+const Feed = require('../../database/schemas/Feed.js');
 
 const feed = (req, res) => {
   // const { propertyId } = req.params;

@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp({closeSignUp}) {
   const classes = useStyles();
 
   return (
@@ -115,11 +115,12 @@ export default function SignUp() {
             </Grid>
           </Grid>
           <Button
-            type="submit"
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={closeSignUp}
           >
             Sign Up
           </Button>

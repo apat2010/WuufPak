@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn({signInClicked, signUpClicked}) {
   const classes = useStyles();
 
   return (
@@ -104,6 +104,7 @@ export default function SignIn() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={signInClicked}
             >
               Sign In
             </Button>
@@ -114,7 +115,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="#" variant="body2" onClick={signUpClicked}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

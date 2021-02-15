@@ -3,12 +3,19 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Suspense, useState, useEffect } from 'react';
 import axios from '../axios';
+import { Modal } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import Maps from './components/maps/Maps.jsx'
-import SignIn from './components/signIn/SignIn.jsx'
 import Chat from './components/chat/Chat.jsx'
+import Login from './components/login/Login.jsx'
 
 export default function App() {
-  const [showSignUp, setShowSignUp] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
+
+  const handleLogin = () => {
+    setShowLogin(false);
+    console.log(showLogin)
+  }
 
   // useEffect(() => {
   //   axios.get('/')
@@ -22,11 +29,10 @@ export default function App() {
   //     });
   // }, []);
 
+
   return (
     <div backgroundColor='white'>
-      {/* <SignIn /> */}
-      <Chat />
-      {/* <Maps location={location} zoomLevel={17} /> */}
+     {showLogin ? <Login loggedIn={handleLogin}/> : null}
     </div>
   );
 

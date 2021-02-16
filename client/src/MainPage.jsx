@@ -20,6 +20,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './components/sideBar/listItems.jsx';
 
+import Feed from './components/feed/Feed.jsx'
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -95,13 +97,21 @@ const useStyles = makeStyles((theme) => ({
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
-    flexGrow: 1,
+    flexGrow: .75,
     height: '100vh',
     overflow: 'auto',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
   },
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
+    background: 'blue',
+    flexDirection: 'row',
+    alignItems: 'stretch'
+  },
+  rightBar: {
+    background: 'green'
   },
   paper: {
     padding: theme.spacing(2),
@@ -109,9 +119,34 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
     flexDirection: 'column',
   },
+  profilePic: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
+    height: 150,
+    width: 150,
+  },
   fixedHeight: {
     height: 240,
   },
+  posts: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    height:'100vh',
+    width: '100%',
+    background: 'yellow'
+  },
+  userInfo: {
+    height:'100vh',
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
+    background: 'red'
+  }
 }));
 
 export default function Dashboard() {
@@ -129,6 +164,7 @@ export default function Dashboard() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
+
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
@@ -168,30 +204,8 @@ export default function Dashboard() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            Charts
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                Orders
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                Deposits
-              </Paper>
-            </Grid>
-          </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
-        </Container>
+        <Feed/>
+
       </main>
     </div>
   );

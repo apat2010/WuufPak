@@ -27,7 +27,7 @@ import Header from './components/Header/Header.jsx'
 export default function App() {
   const [showLogin, setShowLogin] = useState(true);
   const [userProfile, setUserProfile] = useState({})
-  const [pakData, setSakData] = useState({})
+  const [pakData, setPakData] = useState({})
 
   useEffect(() => {
     axios.get('/api/user')
@@ -37,8 +37,8 @@ export default function App() {
         const wuufPakIds = response.data.user.wuufPakIds
         axios.get(`/api/pak/${wuufPakIds}`)
           .then((response)=> {
-            console.log(response)
-            setSakData(response.data)
+            console.log(response.data)
+            setPakData(response.data)
           });
       })
       .catch((error) => {

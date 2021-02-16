@@ -18,10 +18,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 
 import MainPage from './MainPage.jsx'
-import Maps from './components/maps/Maps.jsx'
-import Chat from './components/chat/Chat.jsx'
 import Login from './components/login/Login.jsx'
-import Feed from './components/feed/Feed.jsx'
 import Header from './components/Header/Header.jsx'
 
 export default function App() {

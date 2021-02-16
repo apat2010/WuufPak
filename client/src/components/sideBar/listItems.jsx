@@ -10,7 +10,9 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
-export const mainListItems = (
+export default function MainListItems({}){
+
+  return (
   <div>
     <ListItem button>
       <ListItemIcon>
@@ -43,7 +45,7 @@ export const mainListItems = (
       <ListItemText primary="Settings" />
     </ListItem>
   </div>
-);
+)};
 
 export const secondaryListItems = (
   <div>

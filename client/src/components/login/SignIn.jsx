@@ -12,6 +12,24 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#ffd95b',
+      main: '#ffa726',
+      dark: '#c77800',
+      contrastText: '#000000',
+    },
+    secondary: {
+      light: '#48a999',
+      main: '#00796b',
+      dark: '#004c40',
+      contrastText: '#ffffff',
+    },
+  },
+});
 
 function Copyright() {
   return (
@@ -57,8 +75,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn({signInClicked, signUpClicked}) {
-  const classes = useStyles();
+export default function SignIn({signInClicked, signUpClicked, theme}) {
+  const classes = useStyles(theme);
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -102,7 +120,7 @@ export default function SignIn({signInClicked, signUpClicked}) {
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              color="secondary"
               className={classes.submit}
               onClick={signInClicked}
             >

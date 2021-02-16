@@ -1,6 +1,20 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import { Modal } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import classes from './Feed.module.css'
+
 
 const getModalStyle = () => {
   return {top: `${50}%`,
@@ -12,47 +26,28 @@ const getModalStyle = () => {
 };
 
 const useStyles = makeStyles(theme => ({
-  modal: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+  root: {
+    flexGrow: 1,
+    height: '100vh',
+  },
+  navBar: {
+    border: '1px dashed green',
   },
   paper: {
-      position: 'absolute',
-      width: 450,
-      backgroundColor: theme.palette.background.paper,
-      boxShadow: theme.shadows[5],
-      padding: theme.spacing(2, 4, 3),
-
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    border: '1px dashed black'
   },
 }));
 
 
-export default function Login({loggedIn}) {
-  const [showSignUp, setShowSignUp] = useState(false);
-  const [showSignIn, setShowSignIn] = useState(true);
-  const classes = useStyles();
-  const [modalStyle] = React.useState(getModalStyle());
-
-  const openSignUp = () => {
-    setShowSignUp(true);
-  }
-  const closeSignUp = () => {
-  }
-
+export default function Feed({}) {
 
   return (
-    <div >
-     <SignIn signInClicked={loggedIn} signUpClicked={openSignUp}/>
-      <Modal
-      open={showSignUp}
-      onClose={closeSignUp}
-      >
-        <div style={modalStyle} className={classes.paper}>
-          <SignUp closeSignUp={loggedIn} />
-        </div>
-      </Modal>
-    </div>
+  <div>
+
+  </div>
   );
 
 }

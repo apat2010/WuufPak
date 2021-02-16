@@ -60,7 +60,7 @@ const userSchema = new mongoose.Schema({
     breed: {
       type: String,
       minLength: 1,
-      maxLength: 30,
+      maxLength: 50,
       required: [true, 'Insert breed!'],
 
     },

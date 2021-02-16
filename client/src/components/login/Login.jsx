@@ -30,10 +30,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function Login({loggedIn}) {
+export default function Login({loggedIn, theme}) {
   const [showSignUp, setShowSignUp] = useState(false);
   const [showSignIn, setShowSignIn] = useState(true);
-  const classes = useStyles();
+  const classes = useStyles(theme);
   const [modalStyle] = React.useState(getModalStyle());
 
   const openSignUp = () => {
@@ -45,7 +45,7 @@ export default function Login({loggedIn}) {
 
   return (
     <div >
-     <SignIn signInClicked={loggedIn} signUpClicked={openSignUp}/>
+     <SignIn signInClicked={loggedIn} signUpClicked={openSignUp} theme={theme}/>
       <Modal
       open={showSignUp}
       onClose={closeSignUp}

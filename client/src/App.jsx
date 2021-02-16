@@ -23,8 +23,13 @@ import Header from './components/Header/Header.jsx'
 
 export default function App() {
   const [showLogin, setShowLogin] = useState(true);
-  const [userProfile, setUserProfile] = useState({})
-  const [pakData, setPakData] = useState({})
+  const [userProfile, setUserProfile] = useState({});
+  const [pakData, setPakData] = useState({});
+  const [feedData, setFeedData] = useState({});
+  const [chatData, setChatData] = useState({});
+  const [postProfiles, setPostProfiles] = useState({});
+  const [chatProfiles, setChatProfiles] = useState({});
+  const [downloadComplete, setDownloadComplete] = useState(false);
 
   useEffect(() => {
     axios.get('/api/user')
@@ -62,8 +67,56 @@ export default function App() {
 
   const handleLogin = () => {
     setShowLogin(false);
-    console.log(showLogin)
-  }
+    const userId = userProfile.id;
+    const wuufPakIds = userProfile.wuufPakIds;
+
+    axios.get(`/api/feed/${userId}`)
+    .then((response) => {
+      console.log('feed data os',response.data)
+      setFeedData(response.data)
+
+      let posts = response.data.posts;
+      let postProfiles = [];
+        posts.map( (post) => {
+          postProfiles.push(post.profileId)
+        });
+
+      axios.get(`/api/chat/${wuufPakIds}`)
+      .then((response) => {
+      setChatData(response.data)
+
+      let chats = response.data;
+      console.log('chats are', chats)
+      let chatProfiles = [];
+      chats.map( (item) => {
+        for (var i = 0; i < item.conversation.length; i++) {
+          chatProfiles.push(item.conversation[i].profileId)
+        }
+      });
+
+      console.log('postProfiles are and chat profiles are', postProfiles, chatProfiles)
+
+      axios.get(`/api/feedProfiles/${postProfiles}`)
+      .then((response) => {
+        console.log(response.data)
+        setPostProfiles(response.data)
+
+        axios.get(`/api/chatProfiles/${chatProfiles}`)
+        .then((response) => {
+          console.log(response.data)
+          setChatProfiles(response.data)
+        })
+      })
+      .then (() => {
+        setDownloadComplete(true);
+      })
+      .catch((error) => {
+        throw new Error(error);
+      });
+      })
+    })
+   }
+
 
     const location = {
       address: '1600 Amphitheatre Parkway, Mountain View, california.',
@@ -73,7 +126,7 @@ export default function App() {
   return (
     <div>
      {showLogin ? <Login loggedIn={handleLogin} theme={theme}/> : null}
-     {!showLogin ? <MainPage /> : null}
+     {!showLogin ? <MainPage userProfile={userProfile} pakData={pakData} chatData={chatData} feedData={feedData} postProfiles={postProfiles} chatProfiles={chatProfiles}downloadComplete={downloadComplete} theme={theme}/> : null}
      {/* <Chat /> */}
      {/* <Maps location={location} zoomLevel={17} /> */}
      {/* <Feed /> */}
@@ -81,13 +134,5 @@ export default function App() {
   );
 
 }
-
-
-
-    // const location = {
-    //   address: '1600 Amphitheatre Parkway, Mountain View, california.',
-    //   lat: 37.42216,
-    //   lng: -122.08427,
-    // } // our location object from earlier
 
 

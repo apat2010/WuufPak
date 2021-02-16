@@ -7,7 +7,7 @@ import locationIcon from '@iconify/icons-mdi/map-marker'
 
 const Map = ({ location, zoomLevel }) => (
   <div className={classes.map}>
-    <h2 className={classes.map_h2}>Come Visit Us At Our Campus</h2>
+    <h2 className={classes.map_h2}></h2>
 
     <div className={classes.google_map}>
       <GoogleMapReact

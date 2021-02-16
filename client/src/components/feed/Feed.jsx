@@ -16,6 +16,8 @@ import Typography from '@material-ui/core/Typography';
 import classes from './Feed.module.css'
 import clsx from 'clsx'
 import Container from '@material-ui/core/Container';
+import UserPost from './UserPost.jsx';
+import Profile from '../profile/Profile.jsx';
 
 
 
@@ -112,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
-    background: 'blue',
+    background: theme.palette.primary.light,
     flexDirection: 'row',
     alignItems: 'stretch'
   },
@@ -141,22 +143,21 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
-    alignItems: 'stretch',
-    height:'100vh',
     width: '100%',
-    background: 'yellow'
+    background: theme.palette.primary.light,
+    justify: 'flex-start'
   },
   userInfo: {
     height:'100vh',
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
-    background: 'red'
+    background: theme.palette.primary.light,
   }
 }));
 const drawerWidth = 240;
 
-export default function Feed({}) {
+export default function Feed({feedProfiles, feedData, posts, userProfile, theme}) {
 
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -164,9 +165,9 @@ export default function Feed({}) {
     <Container maxWidth="lg" className={classes.container} >
       <Grid container spacing={3} className={classes.container}>
         <Grid item xs={12} md={4} lg={3} className={classes.userInfo} >
-          <Paper className={fixedHeightPaper}>
+          <Paper >
             <Grid item xs={2} md={2} >
-              <Paper className={classes.profilePic}>Img</Paper>
+              <Profile userProfile={userProfile}/>
             </Grid>
           </Paper>
         </Grid>
@@ -174,6 +175,10 @@ export default function Feed({}) {
           <Paper className={classes.paper}>
             Deposits
           </Paper>
+          {posts.map( (post) =>
+             <UserPost post={post}/>
+          )}
+
         </Grid>
       </Grid>
       <Box pt={4}>

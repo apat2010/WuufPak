@@ -13,6 +13,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import Fab from '@material-ui/core/Fab';
 import SendIcon from '@material-ui/icons/Send';
+import Scout from '../avatars/Scout.png'
+import Milo from '../avatars/Milo.png'
+import Betty from '../avatars/Betty.png'
+import Penny from '../avatars/Penny.png'
+
 
 const useStyles = makeStyles({
   table: {
@@ -49,9 +54,9 @@ const Chat = () => {
                 <List>
                     <ListItem button key="RemySharp">
                         <ListItemIcon>
-                        <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/1.jpg" />
+                        <Avatar alt="Betty" src={Betty} />
                         </ListItemIcon>
-                        <ListItemText primary="John Wick"></ListItemText>
+                        <ListItemText primary="Betty"></ListItemText>
                     </ListItem>
                 </List>
                 <Divider />
@@ -62,22 +67,22 @@ const Chat = () => {
                 <List>
                     <ListItem button key="RemySharp">
                         <ListItemIcon>
-                            <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/1.jpg" />
+                            <Avatar alt="Scout" src={Scout} />
                         </ListItemIcon>
-                        <ListItemText primary="Remy Sharp">Remy Sharp</ListItemText>
+                        <ListItemText primary="Scout">Scout</ListItemText>
                         <ListItemText secondary="online" align="right"></ListItemText>
                     </ListItem>
                     <ListItem button key="Alice">
                         <ListItemIcon>
-                            <Avatar alt="Alice" src="https://material-ui.com/static/images/avatar/3.jpg" />
+                            <Avatar alt="Alice" src={Penny} />
                         </ListItemIcon>
-                        <ListItemText primary="Alice">Alice</ListItemText>
+                        <ListItemText primary="Penny">Penny</ListItemText>
                     </ListItem>
                     <ListItem button key="CindyBaker">
                         <ListItemIcon>
-                            <Avatar alt="Cindy Baker" src="https://material-ui.com/static/images/avatar/2.jpg" />
+                            <Avatar alt="Milo" src={Milo} />
                         </ListItemIcon>
-                        <ListItemText primary="Cindy Baker">Cindy Baker</ListItemText>
+                        <ListItemText primary="Milo">Milo</ListItemText>
                     </ListItem>
                 </List>
             </Grid>

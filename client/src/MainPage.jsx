@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
+import axios from 'axios'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -26,12 +27,19 @@ import Chat from './components/chat/Chat.jsx'
 
 const drawerWidth = 240;
 
-export default function MainPage() {
+export default function MainPage({userProfile, pakData, chatData, feedData, downloadComplete, theme}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [showMaps, setShowMaps] = useState(false);
-  const [showChat, setChat] = useState(false);
+  const [showChat, setShowChat] = useState(false);
   const [showFeed, setShowFeed] = useState(true);
+  const [postProfiles, setPostProfiles] = useState({});
+  const [chatProfiles, setChatProfiles] = useState({});
+
+    // const location = {
+    //   lat: 37.42216,
+    //   lng: -122.08427,
+    // }
 
 
   const handleDrawerOpen = () => {
@@ -41,7 +49,25 @@ export default function MainPage() {
     setOpen(false);
   };
 
+
   const handleNavBarClick = (event) => {
+    console.log(event.target.innerHTML)
+    console.log('feed data in main page is', feedData)
+    const widgetChosen = event.target.innerHTML;
+
+    if(widgetChosen === 'Explore') {
+      setShowChat(false);
+      setShowFeed(false);
+      setShowMaps(true);
+    } else if (widgetChosen === 'Chat') {
+      setShowFeed(false);
+      setShowMaps(false);
+      setShowChat(true);
+    } else if (widgetChosen === 'Home') {
+      setShowMaps(false);
+      setShowChat(false);
+      setShowFeed(true);
+    }
 
   }
 
@@ -56,7 +82,7 @@ export default function MainPage() {
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
-            color="inherit"
+            color="00796b"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
@@ -87,27 +113,19 @@ export default function MainPage() {
         </div>
         <Divider />
         <List>
-          <MainListItems />
+          <MainListItems buttonClick={handleNavBarClick}/>
           </List>
         <Divider />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        {showFeed ? <Feed /> : null}
+        {showFeed && downloadComplete ? <Feed feedProfiles={postProfiles} feedData={feedData} posts={feedData.posts} userProfile={userProfile} theme={theme}/> : null}
         {showMaps ? <Maps /> : null}
         {showChat ? <Chat /> : null}
-
       </main>
     </div>
   );
 }
-
-
-
-
-
-
-
 
 ///////////////////////////////////////////////////
 

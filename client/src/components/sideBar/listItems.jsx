@@ -10,23 +10,23 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 
-export default function MainListItems({}){
+export default function MainListItems({buttonClick}){
 
   return (
   <div>
-    <ListItem button>
+    <ListItem button id='Home' onClick={buttonClick}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Home" />
     </ListItem>
-    <ListItem button>
+    <ListItem button id='Explore' onClick={buttonClick}>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Explore" />
     </ListItem>
-    <ListItem button>
+    <ListItem button id='Chat' onClick={buttonClick}>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>

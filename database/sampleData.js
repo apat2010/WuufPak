@@ -23,7 +23,8 @@ const chat = {
 const feed = [
   {
     profileId: 12345,
-    posts: [{
+    posts: [
+      {
       profileId: '3333',
       body: 'Just had an ice cream at DoggosCream. Delicious! Would recommend',
       date: 'TBD',
@@ -34,95 +35,26 @@ const feed = [
           comment: ' Wow! That sounds amazing. Need to check it out!',
           date: 'TBD',
           likes: '0',
-        }
+        },
       ]
-    }]
+    },
+    {
+      profileId: '1111',
+      body: 'Wow! Crazy day at the park! Cant way to go back on Thursday',
+      date: 'TBD',
+      likes: 10,
+      comments: [
+        {
+          profileId: '2211',
+          comment: ' Wow! That sounds amazing. Need to check it out!',
+          date: 'TBD',
+          likes: '0',
+        },
+      ]
+    },
+
+  ]
   },
-  {
-    profileId: 12345,
-    posts: [{
-      profileId: '3333',
-      body: 'Just had an ice cream at DoggosCream. Delicious! Would recommend',
-      date: 'TBD',
-      likes: 10,
-      comments: [
-        {
-          profileId: '2211',
-          comment: ' Wow! That sounds amazing. Need to check it out!',
-          date: 'TBD',
-          likes: '0',
-        }
-      ]
-    }]
-  },
-  {
-    profileId: 12345,
-    posts: [{
-      profileId: '3333',
-      body: 'Just had an ice cream at DoggosCream. Delicious! Would recommend',
-      date: 'TBD',
-      likes: 10,
-      comments: [
-        {
-          profileId: '2211',
-          comment: ' Wow! That sounds amazing. Need to check it out!',
-          date: 'TBD',
-          likes: '0',
-        }
-      ]
-    }]
-  },
-  {
-    profileId: 12345,
-    posts: [{
-      profileId: '3333',
-      body: 'Just had an ice cream at DoggosCream. Delicious! Would recommend',
-      date: 'TBD',
-      likes: 10,
-      comments: [
-        {
-          profileId: '2211',
-          comment: ' Wow! That sounds amazing. Need to check it out!',
-          date: 'TBD',
-          likes: '0',
-        }
-      ]
-    }]
-  },
-  {
-    profileId: 12345,
-    posts: [{
-      profileId: '3333',
-      body: 'Just had an ice cream at DoggosCream. Delicious! Would recommend',
-      date: 'TBD',
-      likes: 10,
-      comments: [
-        {
-          profileId: '2211',
-          comment: ' Wow! That sounds amazing. Need to check it out!',
-          date: 'TBD',
-          likes: '0',
-        }
-      ]
-    }]
-  },
-  {
-    profileId: 12345,
-    posts: [{
-      profileId: '3333',
-      body: 'Just had an ice cream at DoggosCream. Delicious! Would recommend',
-      date: 'TBD',
-      likes: 10,
-      comments: [
-        {
-          profileId: '2211',
-          comment: ' Wow! That sounds amazing. Need to check it out!',
-          date: 'TBD',
-          likes: '0',
-        }
-      ]
-    }]
-  }
 ];
 
  const users = [

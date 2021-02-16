@@ -1,4 +1,3 @@
-const Feed = require('../../database/schemas/Feed.js');
 const User = require('../../database/schemas/User.js');
 const Pak = require('../../database/schemas/Pak.js');
 
@@ -31,14 +30,11 @@ const pakInfo = (req, res) => {
     wuufPakIds.push(Number(str))
   })
 
-  console.log(wuufPakIds)
-
   const query = Pak.where({id: wuufPakIds});
   query.find((err, pakData) => {
     if (err) {
       res.status(404).send(err);
     } else {
-      console.log(pakData)
       res.status(200).send(pakData);
     }
   });

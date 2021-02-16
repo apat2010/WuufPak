@@ -18,6 +18,14 @@ import clsx from 'clsx'
 import Container from '@material-ui/core/Container';
 import UserPost from './UserPost.jsx';
 import Profile from '../profile/Profile.jsx';
+import Bullet from '../avatars/Bullet.png';
+import Scout from '../avatars/Scout.png'
+import Milo from '../avatars/Milo.png'
+import Betty from '../avatars/Betty.png'
+import Penny from '../avatars/Penny.png'
+import Zion from '../avatars/Milo.png'
+import Arty from '../avatars/Betty.png'
+import LayersIcon from '@material-ui/icons/Layers';
 
 
 
@@ -158,6 +166,8 @@ const useStyles = makeStyles((theme) => ({
 const drawerWidth = 240;
 
 export default function Feed({feedProfiles, feedData, posts, userProfile, theme}) {
+  const photos = [Bullet, Scout, Milo, Betty, Penny, Zion, Arty]
+  const names = ['Bullet', 'Scout', 'Milo', 'Betty', 'Penny', 'Zion', 'Arty']
 
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -175,8 +185,8 @@ export default function Feed({feedProfiles, feedData, posts, userProfile, theme}
           <Paper className={classes.paper}>
             Deposits
           </Paper>
-          {posts.map( (post) =>
-             <UserPost post={post}/>
+          {posts.map( (post, index) =>
+             <UserPost post={post} image={photos[index]} name={names[index]}/>
           )}
 
         </Grid>

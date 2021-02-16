@@ -6,14 +6,18 @@ const chat = {
       {
         profileId: 1234,
         comment: 'Anyone want to get silly at the park today?',
-        date: 'TBD',
+        date: '10 Feb 2021',
 
       },
       {
         profileId: 2211,
         comment: 'Sorry, I cant. My dad is going for a run. Maybe tomorrow?',
-        date: 'TBD',
-
+        date: '11 Feb 2021',
+      },
+      {
+        profileId: 3333,
+        comment: 'Whats going on People?',
+        date: '11 Feb 2021',
       },
 
     ]
@@ -25,9 +29,37 @@ const feed = [
     profileId: 12345,
     posts: [
       {
-      profileId: '3333',
+      profileId: 3333,
       body: 'Just had an ice cream at DoggosCream. Delicious! Would recommend',
-      date: 'TBD',
+      date: '13 Feb 2021',
+      likes: 10,
+      comments: [
+        {
+          profileId: '2211',
+          comment: ' Wow! That sounds amazing. Need to check it out!',
+          date: '13 Feb 2021',
+          likes: '0',
+        },
+      ]
+    },
+    {
+      profileId: 4369,
+      body: 'Wow! Crazy day at the park! Cant way to go back on Thursday',
+      date: '12 Feb 2021',
+      likes: 10,
+      comments: [
+        {
+          profileId: '2211',
+          comment: ' Wow! That sounds amazing. Need to check it out!',
+          date: '13 Feb 2021',
+          likes: '0',
+        },
+      ]
+    },
+    {
+      profileId: 2222,
+      body: 'There are squirrels outside! You gotta check this out!',
+      date: '11 Feb 2021',
       likes: 10,
       comments: [
         {
@@ -39,9 +71,37 @@ const feed = [
       ]
     },
     {
-      profileId: '1111',
+      profileId: 3333,
+      body: 'Do they ever stop watching the bachelor',
+      date: '10 Feb 2021',
+      likes: 10,
+      comments: [
+        {
+          profileId: '2211',
+          comment: ' Wow! That sounds amazing. Need to check it out!',
+          date: 'TBD',
+          likes: '0',
+        },
+      ]
+    },
+    {
+      profileId: 5678,
       body: 'Wow! Crazy day at the park! Cant way to go back on Thursday',
-      date: 'TBD',
+      date: '10 Feb 2021',
+      likes: 10,
+      comments: [
+        {
+          profileId: '2211',
+          comment: ' Wow! That sounds amazing. Need to check it out!',
+          date: 'TBD',
+          likes: '0',
+        },
+      ]
+    },
+    {
+      profileId: 1111,
+      body: 'Wow! Crazy day at the park! Cant way to go back on Thursday',
+      date: '10 Feb 2021',
       likes: 10,
       comments: [
         {
@@ -75,8 +135,8 @@ const feed = [
     },
     wuufPakIds: [1111, 2222, 3333],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670521',
+      longitude: '-122.342198',
     }
   },
   {
@@ -96,8 +156,8 @@ const feed = [
     },
     wuufPakIds: [2222],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670523',
+      longitude: '-122.342195',
     }
   },
   {
@@ -117,8 +177,8 @@ const feed = [
     },
     wuufPakIds: [2222],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670526',
+      longitude: '-122.342196',
     }
   },
   {
@@ -138,8 +198,8 @@ const feed = [
     },
     wuufPakIds: [1111, 2222, 3333],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670520',
+      longitude: '-122.342197',
     }
   },
   {
@@ -159,8 +219,8 @@ const feed = [
     },
     wuufPakIds: [1111],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670559',
+      longitude: '-122.342188',
     }
   },
   {
@@ -180,8 +240,8 @@ const feed = [
     },
     wuufPakIds: [1111, 2222, 3333],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670559',
+      longitude: '-122.342188',
     }
   },
   {
@@ -201,8 +261,8 @@ const feed = [
     },
     wuufPakIds: [1111, 2222],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670521',
+      longitude: '-122.342198',
     }
   },
   {
@@ -222,8 +282,8 @@ const feed = [
     },
     wuufPakIds: [1111, 3333],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670525',
+      longitude: '-122.342194',
     }
   },
   {
@@ -243,8 +303,8 @@ const feed = [
     },
     wuufPakIds: [3333],
     currentLoc: {
-      latitude: 'TBD',
-      longitude: 'TBD',
+      latitude: '47.670522',
+      longitude: '-122.342197',
     }
   }
  ]

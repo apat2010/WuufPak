@@ -127,9 +127,6 @@ export default function App() {
     <div>
      {showLogin ? <Login loggedIn={handleLogin} theme={theme}/> : null}
      {!showLogin ? <MainPage userProfile={userProfile} pakData={pakData} chatData={chatData} feedData={feedData} postProfiles={postProfiles} chatProfiles={chatProfiles}downloadComplete={downloadComplete} theme={theme}/> : null}
-     {/* <Chat /> */}
-     {/* <Maps location={location} zoomLevel={17} /> */}
-     {/* <Feed /> */}
     </div>
   );
 

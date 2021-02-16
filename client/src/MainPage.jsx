@@ -20,6 +20,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MainListItems from './components/sideBar/listItems.jsx';
+import Bullet from './components/avatars/Bullet.png';
+import Scout from './components/avatars/Scout.png'
+import Milo from './components/avatars/Milo.png'
+import Betty from './components/avatars/Betty.png'
+import Penny from './components/avatars/Penny.png'
+import Zion from './components/avatars/Milo.png'
+import Arty from './components/avatars/Betty.png'
 
 import Feed from './components/feed/Feed.jsx'
 import Maps from './components/maps/Maps.jsx'
@@ -27,20 +34,19 @@ import Chat from './components/chat/Chat.jsx'
 
 const drawerWidth = 240;
 
-export default function MainPage({userProfile, pakData, chatData, feedData, downloadComplete, theme}) {
+export default function MainPage({userProfile, pakData, chatData, feedData, downloadComplete, postProfiles, chatProfiles, theme}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const [showMaps, setShowMaps] = useState(false);
   const [showChat, setShowChat] = useState(false);
   const [showFeed, setShowFeed] = useState(true);
-  const [postProfiles, setPostProfiles] = useState({});
-  const [chatProfiles, setChatProfiles] = useState({});
 
-    // const location = {
-    //   lat: 37.42216,
-    //   lng: -122.08427,
-    // }
+    const location = {
+      lat: 37.42216,
+      lng: -122.08427,
+    }
 
+  console.log('the profiles in Main are', postProfiles)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -73,6 +79,7 @@ export default function MainPage({userProfile, pakData, chatData, feedData, down
 
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const photos = [Bullet, Scout, Milo, Betty, Penny, Zion, Arty]
 
   return (
     <div className={classes.root}>
@@ -120,12 +127,13 @@ export default function MainPage({userProfile, pakData, chatData, feedData, down
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         {showFeed && downloadComplete ? <Feed feedProfiles={postProfiles} feedData={feedData} posts={feedData.posts} userProfile={userProfile} theme={theme}/> : null}
-        {showMaps ? <Maps /> : null}
+        {showMaps ? <Maps profiles={postProfiles} photos={photos}/> : null}
         {showChat ? <Chat /> : null}
       </main>
     </div>
   );
 }
+
 
 ///////////////////////////////////////////////////
 

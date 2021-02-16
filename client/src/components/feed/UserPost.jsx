@@ -9,10 +9,14 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Hidden from '@material-ui/core/Hidden';
 
+
 const useStyles = makeStyles({
   card: {
     display: 'flex',
     alignItems: 'stretch',
+    flexDirection: 'row',
+    justify: 'space-between'
+
   },
   cardDetails: {
     flex: 1,
@@ -20,20 +24,30 @@ const useStyles = makeStyles({
   cardMedia: {
     width: '100%',
   },
+  picture: {
+    overflow: 'auto',
+    height: 100,
+    width: 100,
+    borderRadius: '50%'
+  }
 });
 
 export default function FeaturedPost(props) {
   const classes = useStyles();
-  const { post } = props;
+  const { post, image, name } = props;
 
   return (
     <Grid item xs={12} md={12}>
       <CardActionArea component="a" href="#">
         <Card className={classes.card}>
+          <img src={image} className={classes.picture}></img>
           <div className={classes.cardDetails}>
             <CardContent>
               <Typography component="h2" variant="h5">
-                {/* {post.title} */}
+
+              </Typography>
+              <Typography variant="subtitle1" color="textSecondary">
+                {name}
               </Typography>
               <Typography variant="subtitle1" color="textSecondary">
                 {post.date}
@@ -43,9 +57,6 @@ export default function FeaturedPost(props) {
               </Typography>
             </CardContent>
           </div>
-          {/* <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image={post.image} title={post.imageTitle} />
-          </Hidden> */}
         </Card>
       </CardActionArea>
     </Grid>

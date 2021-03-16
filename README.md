@@ -25,4 +25,4 @@ WuufPak is the concept of a social media site to connect pets & pet owners.
 - Finish features described above
 - Deploy to AWS and create system design for webscale traffic (horizontal scaling, NGINX, and REDIS caching)
 
-### Will update on 15 Mar. Please stay tuned!
+### Please stay tuned!

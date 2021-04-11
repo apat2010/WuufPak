@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import classes from './Maps.module.css';
-import Api from './config.js'
+import Api from '../../../../config.js'
 import { Icon } from '@iconify/react'
 import locationIcon from '@iconify/icons-mdi/map-marker'
 import Marker from './Marker.jsx'

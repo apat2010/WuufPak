@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import login2 from '../avatars/login2.png'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const theme = createMuiTheme({
   palette: {
@@ -78,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn({signInClicked, signUpClicked, theme}) {
   const classes = useStyles(theme);
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -93,39 +95,17 @@ export default function SignIn({signInClicked, signUpClicked, theme}) {
             WuufPak
           </Typography>
           <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
             <Button
+              onClick={() => loginWithRedirect()}
               type="submit"
               fullWidth
               variant="contained"
               color="secondary"
               className={classes.submit}
-              onClick={signInClicked}
             >
               Sign In
             </Button>

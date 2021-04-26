@@ -1,4 +1,5 @@
 import React, {useState, useEffect } from 'react';
+import {BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Modal } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,13 +9,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { createMuiTheme } from '@material-ui/core/styles';
+import {Tabs, Tab, AppBar} from '@material-ui/core'
 
 
 import MainPage from './MainPage.jsx'
@@ -22,6 +23,7 @@ import Login from './components/login/Login.jsx'
 import Header from './components/Header/Header.jsx'
 
 export default function App() {
+  const routes = ['/SignIn', '/VideoTutorial'];
   const [showLogin, setShowLogin] = useState(true);
   const [userProfile, setUserProfile] = useState({});
   const [pakData, setPakData] = useState({});
@@ -86,7 +88,7 @@ export default function App() {
       setChatData(response.data)
 
       let chats = response.data;
-      console.log('chats are', chats)
+      console.log('chats are', chats);
       let chatProfiles = [];
       chats.map( (item) => {
         for (var i = 0; i < item.conversation.length; i++) {
@@ -124,9 +126,49 @@ export default function App() {
       lng: -122.08427,
     } // our location object from earlier
   return (
+<div>
     <div>
-     {showLogin ? <Login loggedIn={handleLogin} theme={theme}/> : null}
-     {!showLogin ? <MainPage userProfile={userProfile} pakData={pakData} chatData={chatData} feedData={feedData} postProfiles={postProfiles} chatProfiles={chatProfiles}downloadComplete={downloadComplete} theme={theme}/> : null}
+    <div>
+          <BrowserRouter>
+            <Route
+            path = '/'
+            render = {(history) => (
+
+            <AppBar>
+              <Tabs value={history.location.pathname}>
+                <Tab
+                label= 'Sign In'
+                value={routes[0]}
+                component={Link}
+                to={routes[0]}
+                />
+                <Tab
+                label= 'Video Tutorial'
+                value={routes[1]}
+                component={Link}
+                to={routes[1]}
+                />
+              </Tabs>
+            </AppBar>
+            )}
+            />
+
+            <Switch>
+              <Route path ='/SignIn' component={Login} />
+              {/* <Route path ='/VideoTutorial' component={} /> */}
+            </Switch>
+
+          </BrowserRouter>
+
+          </div>
+
+      </div>
+
+{/*
+      <div>
+      {showLogin ? <Login loggedIn={handleLogin} theme={theme}/> : null}
+      {!showLogin ? <MainPage userProfile={userProfile} pakData={pakData} chatData={chatData} feedData={feedData} postProfiles={postProfiles} chatProfiles={chatProfiles}downloadComplete={downloadComplete} theme={theme}/> : null}
+      </div> */}
     </div>
   );
 
